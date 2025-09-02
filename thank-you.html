@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You — Complete Science Learning Pack</title>
+  <style>
+    :root{
+      --ink:#0f172a; --muted:#475569; --accent:#2563eb; --accent2:#06b6d4; --ok:#16a34a; --bg:#f8fafc; --card:#ffffff;
+    }
+    html,body{background:var(--bg);margin:0;font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink)}
+    .wrap{max-width:860px;margin:40px auto;padding:22px}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:18px;box-shadow:0 8px 24px #0000000d;padding:22px}
+    h1{margin:0 0 6px;font-size:32px;line-height:1.1}
+    .lead{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width:820px){.grid{grid-template-columns:1.2fr .8fr}}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;text-decoration:none}
+    .btn-primary{background:linear-gradient(180deg,var(--accent),#1d4ed8);color:#fff}
+    .btn-ghost{background:#f1f5f9;border:1px solid #e2e8f0;color:#0f172a}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    ul{margin:0 0 0 18px}
+    li{margin:6px 0}
+    .muted{color:var(--muted);font-size:14px}
+    .pill{display:inline-block;background:#ecfeff;border:1px solid #cffafe;color:#0e7490;border-radius:999px;padding:6px 10px;font-weight:700}
+    .panel{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:14px;padding:14px;margin-top:8px}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    .disclosure{font-size:12px;color:#64748b;margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <p class="pill">Thanks for your purchase! 🎉</p>
+      <h1>Complete Science Learning Pack</h1>
+      <p class="lead">Your downloads are ready. If this page didn’t open automatically after checkout, use the buttons below.</p>
+
+      <div class="grid">
+        <section>
+          <h3>1) Download your files</h3>
+          <div class="panel">
+            <p>Click to open your purchase page and download the game, worksheets (student + teacher), and slide deck.</p>
+            <p>
+              <a id="btnGumroad" class="btn btn-primary" href="#" target="_blank" rel="noopener">📦 Open Gumroad Downloads</a>
+              <a id="btnLibrary" class="btn btn-ghost" href="https://app.gumroad.com/library" target="_blank" rel="noopener">🗂 Open Gumroad Library</a>
+            </p>
+          </div>
+
+          <h3 style="margin-top:16px">2) Explore real‑world space with your kid 🌙</h3>
+          <div class="panel">
+            <p>Keep the excitement going with a beginner‑friendly telescope perfect for kids getting into astronomy.</p>
+            <p>
+              <a id="btnAmazon" class="btn btn-ghost" href="#" target="_blank" rel="noopener">🔭 Explore the Kid’s Telescope</a>
+            </p>
+            <p class="disclosure">Disclosure: This page may contain affiliate links. I may earn a commission at no extra cost to you.</p>
+          </div>
+
+          <h3 style="margin-top:16px">3) Need help?</h3>
+          <ul>
+            <li>Email support: <a id="mailto" href="#"></a></li>
+            <li>Having trouble opening the game? Try Chrome/Edge, or unzip and open <code>index.html</code> directly.</li>
+            <li>If a school device blocks new tabs, copy the link and open in the same tab.</li>
+          </ul>
+        </section>
+
+        <aside>
+          <div class="panel">
+            <h4>What you got</h4>
+            <ul>
+              <li>🎮 CosmoChem Quest (browser game)</li>
+              <li>📝 Worksheets — Student Pack</li>
+              <li>📝 Worksheets — Teacher Edition</li>
+              <li>📊 Quiz Slides (PDF)</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Bonus tips</h4>
+            <ul>
+              <li>Play as a family challenge: who scores highest?</li>
+              <li>Print worksheets double‑sided to save paper</li>
+              <li>Project the quiz slides for group play</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        <div>Made with 💙 for curious kids. • <span id="brand">Your Brand</span></div>
+        <div class="disclosure">Disclosure: This page may contain affiliate links. I may earn a commission at no extra cost to you.</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // ====== Quick Config ======
+    const GUMROAD_PRODUCT_URL = "https://your-gumroad-link-here";  // ← paste your Gumroad product link
+    const AMAZON_AFFILIATE_URL = "https://amzn.to/46igITu";        // your telescope affiliate
+    const SUPPORT_EMAIL = "hello@thedreamworkz.com";                   // support email shown + mailto
+    const BRAND_NAME = "The Dream Workz - CosmoChem Quest";                          // footer brand
+    // ===========================
+
+    // Wire up links
+    document.getElementById('btnGumroad').href = GUMROAD_PRODUCT_URL;
+    document.getElementById('btnAmazon').href  = AMAZON_AFFILIATE_URL;
+    document.getElementById('mailto').textContent = SUPPORT_EMAIL;
+    document.getElementById('mailto').href = `mailto:${SUPPORT_EMAIL}`;
+    document.getElementById('brand').textContent = BRAND_NAME;
+
+    // If this page is opened with ?p=URL, prefer that as the downloads link (lets you deep‑link from multiple products)
+    const p = new URLSearchParams(location.search).get('p');
+    if (p) document.getElementById('btnGumroad').href = p;
+  </script>
+</body>
+</html>
